@@ -1,3 +1,10 @@
+# 1.0.0 (2022-10-07)
+
+
+### Features
+
+* 🎸 Adds `rpc` indexer ([#3](https://github.com/0xessential/use-many-indexers/issues/3)) ([54556f8](https://github.com/0xessential/use-many-indexers/commit/54556f807ae4689ba18a8c5bbbcdc39bc176c6b2))
+
 ## [1.1.1](https://github.com/0xessential/use-metadata/compare/v1.1.0...v1.1.1) (2022-09-19)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@0xessential/use-many-indexers",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Fallback to alternative NFT metadata indexing providers when your primary service fails",
   "main": "dist/index.js",
   "module": "dist/use-many-indexers.esm.js",
