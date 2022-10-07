@@ -4,7 +4,7 @@ React hook for fetching NFT metadata serially from multiple indexers.
 
 NFT metadata indexing services face an immense challenge in covering edge cases for every NFT on multiple blockchains.
 
-This React library allows developers to specify an array of indexing services, and each can be queried in order until a successful response is returned.
+This React library allows developers to specify an array of indexing services, and each will be queried in order until a successful response is returned.
 
 We recommend using this project to catch or rescue token metadata when your primary service fails. The library does not support fetching metadata for an array of NFTs - you should choose a primary indexing service that provides metadata for many NFTs in one query, then use this library as a fallback to fetch any metadata your primary service missed.
 
@@ -28,9 +28,7 @@ This project is in beta. 0xEssential got tired of trying to find the best indexe
  yarn add @0xessential/use-many-indexers
 ```
 
-## MetadataProvider
-
-### Import
+## Import
 
 Import the `<MetadataProvider>` to wrap any components that require NFT metadata. Typically you'll add this to an outer component like NextJS `_app.tsx`, but we recommend adding the context provider as deep in your React component tree as possible for best performance.  
 
@@ -51,7 +49,7 @@ Import the `<MetadataProvider>` to wrap any components that require NFT metadata
   export default MyApp;
 ```
 
-### Configure
+## Configure
 
 Each supported indexer provides a configuration function that accepts arguments for authentication and network support. You must pass at least one indexer to the `<MetadataProvider>`.
 
@@ -59,7 +57,7 @@ Indexers will be queried in the order you provide them in MetadataProvider confi
 
 We suggest working bottom up, first implementing the `rpc` indexer - this fallback fetches the `tokenURI` and then metadata directly from a contract. Then add configuration above until you're happy with coverage.
 
-#### rpc
+### rpc
 
 The `rpc` indexer provides a fallback that fetches an NFT's `tokenURI` from the NFT contract via an RPC provider. The user's browser then fetches metadata from the `tokenURI`.
 
@@ -91,7 +89,7 @@ The `rpc` configuration expects an RPC URL for each network you support in your 
   return MyApp;
 ```
 
-#### Infura
+### Infura
 
 The `infura` indexer provides a fallback that fetches an NFT's `tokenURI` from the NFT contract using an Infura RPC URL.
 
@@ -121,7 +119,7 @@ You'll also need to provide a function to resolve IPFS URIs like in the `rpc` in
   return MyApp;
 ```
 
-#### Zora
+### Zora
 
 Zora supports Ethereuem Mainnet and Goerli Testnet. An API key is optional. Coverage is very good but supports limited networks.
 
@@ -143,7 +141,7 @@ Zora supports Ethereuem Mainnet and Goerli Testnet. An API key is optional. Cove
   return MyApp;
 ```
 
-#### Alchemy
+### Alchemy
 
 Alchemy requires an API key per network your dApp supports. Configuration is passed as a nested object - string keys for each chain ID you support, and an object value with `apiKey` and `network` keys.
 
@@ -175,7 +173,7 @@ Alchemy requires an API key per network your dApp supports. Configuration is pas
   return MyApp;
 ```
 
-#### Center
+### Center
 
 [Center](https://center.dev/) supports Ethereuem and Polygon mainnets. An API key is required but works with every Center-supported chain.
 
