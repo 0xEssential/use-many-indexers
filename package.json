@@ -1,0 +1,114 @@
+{
+  "name": "@0xessential/use-many-indexers",
+  "version": "0.0.1",
+  "description": "Fallback to alternative NFT metadata indexing providers when your primary service fails",
+  "main": "dist/index.js",
+  "module": "dist/use-many-indexers.esm.js",
+  "unpkg": "dist/use-many-indexers.umd.min.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn run clean && rollup -c",
+    "clean": "rimraf dist",
+    "lint": "eslint '**/*.{js,ts}'",
+    "lint:fix": "yarn run lint -- --fix",
+    "lint:types": "tsc --noEmit",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "release": "semantic-release",
+    "cz": "git-cz"
+  },
+  "keywords": [
+    "react",
+    "hooks",
+    "react-hooks"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/0xessential/use-many-indexers.git"
+  },
+  "author": "sammybauch <sam@0xessential.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/0xessential/use-many-indexers/issues"
+  },
+  "homepage": "https://github.com/0xessential/use-many-indexers#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
+    "@rollup/plugin-commonjs": "^20.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.0.4",
+    "@rollup/plugin-typescript": "^8.5.0",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "@testing-library/react-hooks": "^7.0.1",
+    "@types/jest": "^26.0.24",
+    "@types/react": "^18.0.20",
+    "@typescript-eslint/eslint-plugin": "^2.34.0",
+    "@zoralabs/zdk": "^2.1.8",
+    "alchemy-sdk": "^2.0.4",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-typescript": "^7.2.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "ethers": "^5.7.1",
+    "git-cz": "^4.7.6",
+    "husky": "^7.0.1",
+    "jest": "^25.5.4",
+    "lint-staged": "^11.1.1",
+    "nft-react": "^0.5.10",
+    "prettier": "^2.3.2",
+    "react": "17.0.2",
+    "react-test-renderer": "^16.14.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.55.1",
+    "rollup-plugin-filesize": "^9.1.1",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-sourcemaps": "^0.6.3",
+    "rollup-plugin-terser": "^7.0.2",
+    "semantic-release": "^17.4.4",
+    "ts-jest": "^25.5.1",
+    "typescript": "^4.8.3"
+  },
+  "peerDependencies": {
+    "@zoralabs/zdk": "^2.1.8",
+    "alchemy-sdk": "^2.0.4",
+    "ethers": "^5.7.1",
+    "nft-react": "^0.5.10",
+    "react": "^16.14.0"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "yarn run lint:types && lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "yarn run lint:fix"
+    ],
+    "*.{md,json,yml}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
